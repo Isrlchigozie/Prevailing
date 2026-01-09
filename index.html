@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prevailing Computers Training Institute</title>
+    <title>Prevailing Computers Training Institute | Umuahia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -11,38 +12,70 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-color: #1a365d;
+            --secondary-color: #2d6bc7;
+            --accent-color: #00a8cc;
+            --accent-hover: #0088aa;
+            --light-color: #f8fafc;
+            --dark-color: #2d3748;
+            --gray-color: #718096;
+            --success-color: #38a169;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: var(--dark-color);
+            background-color: var(--light-color);
             overflow-x: hidden;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--primary-color);
+        }
+
+        p {
+            color: var(--gray-color);
         }
 
         /* Header & Navigation */
         header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1rem 0;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
         }
 
-        nav {
+        .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 1rem 2rem;
         }
 
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo-icon {
+            color: var(--accent-color);
             font-size: 1.8rem;
-            font-weight: bold;
-            animation: slideInLeft 0.8s ease;
         }
 
         .nav-links {
@@ -52,132 +85,178 @@
         }
 
         .nav-links a {
-            color: white;
+            color: var(--dark-color);
             text-decoration: none;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
         }
 
         .nav-links a:hover {
-            background: rgba(255,255,255,0.2);
-            transform: translateY(-2px);
+            color: var(--accent-color);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, rgba(26, 54, 93, 0.95) 0%, rgba(45, 107, 199, 0.95) 100%), url('https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2069&q=80');
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 150px 2rem 100px;
+            padding: 180px 2rem 120px;
             text-align: center;
             position: relative;
-            overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,138.7C960,139,1056,117,1152,106.7C1248,96,1344,96,1392,96L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
-            background-size: cover;
-            animation: wave 15s infinite linear;
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            animation: fadeInUp 1s ease;
+            font-size: 3.2rem;
+            color: white;
+            margin-bottom: 1.5rem;
         }
 
-        .hero p {
+        .hero-subtitle {
             font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
             margin-bottom: 2rem;
-            animation: fadeInUp 1.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .cta-button {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
             padding: 1rem 2.5rem;
-            background: white;
-            color: #667eea;
+            background-color: var(--accent-color);
+            color: white;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
+            border-radius: var(--border-radius);
+            font-weight: 600;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: var(--transition);
+            box-shadow: 0 6px 20px rgba(0, 168, 204, 0.3);
+            border: none;
             cursor: pointer;
-            position: relative;
-            z-index: 10;
         }
 
         .cta-button:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
-            cursor: pointer;
+            background-color: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 168, 204, 0.4);
         }
 
-        /* Features Section */
-        .features {
+        /* Sections */
+        .section {
             padding: 80px 2rem;
-            background: #f8f9fa;
         }
 
         .section-title {
             text-align: center;
             font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #667eea;
-            animation: fadeIn 1s ease;
+            margin-bottom: 1rem;
         }
 
-        .section-title-2 {
+        .section-subtitle {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            animation: fadeIn 1s ease;
+            font-size: 1.1rem;
+            color: var(--gray-color);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        /* About Section */
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .about-card {
+            background: white;
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            margin-bottom: 2rem;
+        }
+
+        .about-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .about-card h3 i {
+            color: var(--accent-color);
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            margin-top: 2rem;
         }
 
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            text-align: center;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            animation: fadeInUp 0.8s ease;
+        .feature-item {
+            background: rgba(0, 168, 204, 0.05);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            border-left: 4px solid var(--accent-color);
         }
 
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
+        .feature-item h4 {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
 
         /* Programs Section */
         .programs {
-            padding: 80px 2rem;
-            background: white;
+            background-color: #f8fafc;
         }
 
         .programs-container {
@@ -187,54 +266,67 @@
 
         .program-category {
             margin-bottom: 4rem;
-            animation: fadeInUp 0.8s ease;
         }
 
         .category-title {
-            font-size: 2rem;
-            color: #667eea;
+            font-size: 1.8rem;
             margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 3px solid #667eea;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid rgba(45, 107, 199, 0.2);
         }
 
         .program-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
         }
 
         .program-card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            padding: 2rem;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .program-card:hover {
-            transform: scale(1.05);
-            border-color: #667eea;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
         }
 
-        .program-card h3 {
-            color: #667eea;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        .program-header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1.5rem;
+        }
+
+        .program-header h3 {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .program-body {
+            padding: 2rem;
         }
 
         .program-price {
             font-size: 2rem;
-            font-weight: bold;
-            color: #764ba2;
+            font-weight: 700;
+            color: var(--accent-color);
             margin: 1rem 0;
         }
 
         .program-duration {
-            font-style: italic;
-            color: #666;
-            margin-bottom: 1rem;
+            display: inline-block;
+            background-color: rgba(45, 107, 199, 0.1);
+            color: var(--secondary-color);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
         }
 
         .program-list {
@@ -243,186 +335,292 @@
         }
 
         .program-list li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
+            padding: 0.6rem 0;
+            padding-left: 1.8rem;
             position: relative;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .program-list li:last-child {
+            border-bottom: none;
         }
 
         .program-list li::before {
             content: '✓';
             position: absolute;
             left: 0;
-            color: #667eea;
+            color: var(--success-color);
             font-weight: bold;
         }
 
         /* Schedule Section */
-        .schedule {
-            padding: 80px 2rem;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
         .schedule-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             max-width: 1200px;
-            margin: 2rem auto;
+            margin: 3rem auto;
         }
 
         .schedule-card {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(255,255,255,0.2);
-            transition: all 0.3s ease;
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--box-shadow);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .schedule-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--accent-color);
         }
 
         .schedule-card:hover {
-            background: rgba(255,255,255,0.2);
             transform: translateY(-5px);
         }
 
-        .schedule-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+        .schedule-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .schedule-time {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 1rem 0;
         }
 
         /* Contact Section */
         .contact {
-            padding: 80px 2rem;
-            background: #f8f9fa;
+            background-color: #f8fafc;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
         }
 
         .contact-info {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .info-card {
             background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            animation: fadeInUp 0.8s ease;
-        }
-
-        .info-card h3 {
-            color: #667eea;
-            margin-bottom: 1rem;
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
         }
 
         .requirements {
             background: white;
-            padding: 2rem;
-            border-radius: 15px;
-            margin: 2rem auto;
-            max-width: 600px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 2.5rem;
+            border-radius: var(--border-radius);
+            margin-bottom: 2rem;
+            box-shadow: var(--box-shadow);
         }
 
         .requirements ul {
             list-style: none;
-            text-align: left;
+            padding: 0;
         }
 
         .requirements li {
-            padding: 0.5rem 0;
-            padding-left: 2rem;
+            padding: 0.8rem 0;
+            padding-left: 2.5rem;
             position: relative;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .requirements li:last-child {
+            border-bottom: none;
         }
 
         .requirements li::before {
-            content: '📋';
+            content: '✓';
             position: absolute;
             left: 0;
+            color: var(--success-color);
+            font-weight: bold;
+            background-color: rgba(56, 161, 105, 0.1);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* WhatsApp Contact */
+        .whatsapp-contact {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .whatsapp-contact h3 {
+            color: white;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .whatsapp-contact p {
+            color: white;
+        }
+
+        .whatsapp-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: white;
+            color: #25D366;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .whatsapp-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Partnership Section */
+        .partners {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .partner-badge {
+            background: rgba(45, 107, 199, 0.1);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: var(--secondary-color);
         }
 
         /* Footer */
         footer {
-            background: #2d3748;
+            background-color: var(--primary-color);
             color: white;
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-section ul li a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .copyright {
             text-align: center;
-            padding: 2rem;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.9rem;
         }
 
         /* Animations */
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 0.8s ease forwards;
         }
 
-        @keyframes slideInLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes wave {
-            0% { background-position: 0 bottom; }
-            100% { background-position: 1440px bottom; }
-        }
-
-        /* Mobile Menu */
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Responsive */
+        /* Responsive Design */
         @media (max-width: 1024px) {
             .hero h1 { font-size: 2.8rem; }
-            .hero p { font-size: 1.2rem; }
             .section-title { font-size: 2.2rem; }
-            .program-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            .contact-container {
+                grid-template-columns: 1fr;
             }
         }
 
         @media (max-width: 768px) {
-            nav {
-                padding: 0 1rem;
+            .nav-container {
+                padding: 1rem;
             }
 
-            .logo { font-size: 1.3rem; }
-
-            .menu-toggle { display: block; }
+            .menu-toggle {
+                display: block;
+            }
 
             .nav-links {
                 position: fixed;
-                top: 60px;
+                top: 70px;
                 left: -100%;
                 width: 100%;
-                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                background-color: white;
                 flex-direction: column;
                 padding: 2rem;
                 gap: 0;
                 transition: left 0.3s ease;
-                box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                z-index: 999;
             }
 
             .nav-links.active {
@@ -431,406 +629,543 @@
 
             .nav-links li {
                 margin: 0.5rem 0;
+                width: 100%;
             }
 
             .nav-links a {
                 display: block;
                 padding: 1rem;
-                text-align: center;
+                border-radius: var(--border-radius);
+            }
+
+            .nav-links a:hover {
+                background-color: rgba(0, 168, 204, 0.05);
             }
 
             .hero {
-                padding: 120px 1rem 80px;
+                padding: 150px 1.5rem 100px;
             }
 
             .hero h1 { 
-                font-size: 2rem;
+                font-size: 2.2rem;
                 line-height: 1.2;
             }
 
-            .hero p { 
-                font-size: 1rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .cta-button {
-                padding: 0.8rem 2rem;
-                font-size: 1rem;
-            }
-
-            .section-title { 
-                font-size: 1.8rem;
+            .hero-subtitle { 
+                font-size: 1.1rem;
                 margin-bottom: 2rem;
             }
 
-            .features, .programs, .schedule, .contact {
-                padding: 50px 1rem;
+            .section { 
+                padding: 60px 1.5rem;
             }
 
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
+            .section-title { 
+                font-size: 2rem;
+                margin-bottom: 0.5rem;
             }
 
-            .feature-card {
-                padding: 1.5rem;
-            }
-
-            .feature-icon {
-                font-size: 2.5rem;
+            .about-card {
+                padding: 2rem;
             }
 
             .program-grid {
                 grid-template-columns: 1fr;
-                gap: 1.5rem;
             }
 
-            .program-card {
+            .category-title {
+                font-size: 1.6rem;
+            }
+
+            .schedule-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .requirements, .contact-info {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { 
+                font-size: 1.8rem;
+            }
+
+            .hero-subtitle { 
+                font-size: 1rem;
+            }
+
+            .section-title { 
+                font-size: 1.7rem;
+            }
+
+            .about-card {
                 padding: 1.5rem;
             }
 
-            .program-card h3 {
-                font-size: 1.3rem;
+            .program-header, .program-body {
+                padding: 1.5rem;
             }
 
             .program-price {
                 font-size: 1.8rem;
             }
 
-            .category-title {
+            .schedule-time {
                 font-size: 1.5rem;
-            }
-
-            .schedule-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-
-            .schedule-card h3 {
-                font-size: 1.3rem;
-            }
-
-            .info-card, .requirements {
-                padding: 1.5rem;
-                margin: 1.5rem 0;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo { font-size: 1.1rem; }
-
-            .hero h1 { 
-                font-size: 1.6rem;
-            }
-
-            .hero p { 
-                font-size: 0.9rem;
-            }
-
-            .cta-button {
-                padding: 0.7rem 1.5rem;
-                font-size: 0.9rem;
-            }
-
-            .section-title { 
-                font-size: 1.5rem;
-            }
-
-            .feature-card, .program-card, .schedule-card, .info-card, .requirements {
-                padding: 1.2rem;
-            }
-
-            .program-price {
-                font-size: 1.5rem;
-            }
-
-            .program-list li {
-                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Header & Navigation -->
     <header>
-        <nav>
-            <div class="logo">💻 PREVAILING COMPUTERS</div>
-            <button class="menu-toggle" id="menuToggle">☰</button>
+        <div class="nav-container">
+            <div class="logo">
+                <!-- <i class="fas fa-laptop-code logo-icon"></i> -->
+                <span>PREVAILING COMPUTERS</span>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About Us</a></li>
                 <li><a href="#programs">Programs</a></li>
                 <li><a href="#schedule">Schedule</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-        </nav>
+        </div>
     </header>
 
+    <!-- Hero Section -->
     <section class="hero" id="home">
-        <h1>PREVAILING COMPUTERS <br> TRAINING INSTITUTE</h1>
-        <p>Your Solution to Computer Problems! RC649331</p>
-        <a href="#programs" class="cta-button">Explore Our Programs</a>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fas fa-award"></i> NABTEB Certified | RC649331 | Since 2004
+            </div>
+            <h1>Prevailing Computers Training Institute</h1>
+            <p class="hero-subtitle">Your solution to computer problems. Professional IT training with 18+ years of excellence in Umuahia, Abia State.</p>
+            <a href="#programs" class="cta-button">
+                <span>Explore Our Programs</span>
+                <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
     </section>
 
-    <section class="features" id="features">
-        <h2 class="section-title">Why Choose Us?</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">🎓</div>
-                <h3>Expert Training</h3>
-                <p>Professional instructors with years of industry experience</p>
+    <!-- About Section -->
+    <section class="section" id="about">
+        <h2 class="section-title">About Our Institute</h2>
+        <p class="section-subtitle">Established in 2004, we've been providing quality computer education to the Umuahia community and beyond.</p>
+        
+        <div class="about-content">
+            <div class="about-card fade-in">
+                <h3><i class="fas fa-history"></i> Our History</h3>
+                <p>Prevailing Computers started in June 2004 at No. 3 Club Road Umuahia with just 7 pioneer students. Due to high demand and rapid growth, we relocated to our current location at No. 30 Ohafia Street, Umuahia, where we continue to provide excellent computer training.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h4><i class="fas fa-graduation-cap"></i> 18+ Years Experience</h4>
+                        <p>Providing quality IT education since 2004</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fas fa-users"></i> 50+ Graduates</h4>
+                        <p>Successfully trained in our last graduation ceremony</p>
+                    </div>
+                    <div class="feature-item">
+                        <h4><i class="fas fa-certificate"></i> NABTEB Certified</h4>
+                        <p>Government-recognized certification programs</p>
+                    </div>
+                </div>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">💼</div>
-                <h3>Career Ready</h3>
-                <p>NABTEB certified programs that prepare you for the job market</p>
+
+            <div class="about-card fade-in">
+                <h3><i class="fas fa-star"></i> Our Achievements</h3>
+                <p>We have trained hundreds of students in various aspects of computer technology. Our graduates are found in government and private sectors, equipped with practical skills that make them stand out in the workplace.</p>
+                
+                <h4 style="margin-top: 2rem; margin-bottom: 1rem;">Our Partners & Affiliations:</h4>
+                <div class="partners">
+                    <div class="partner-badge">Education for Employment (E4E)</div>
+                    <div class="partner-badge">Abia State SUBEB</div>
+                    <div class="partner-badge">National Directorate of Employment</div>
+                    <div class="partner-badge">Kolping Society of Nigeria</div>
+                </div>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">⏰</div>
-                <h3>Flexible Schedule</h3>
-                <p>Morning, afternoon, evening, and weekend programs available</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🏆</div>
-                <h3>Comprehensive Curriculum</h3>
-                <p>From basics to advanced programming and design</p>
+
+            <div class="about-card fade-in">
+                <h3><i class="fas fa-cogs"></i> Our Training Areas</h3>
+                <p>We offer comprehensive training in the following areas:</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+                    <div><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i> Web Design/Development</div>
+                    <div><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i> Programming Languages</div>
+                    <div><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i> Graphics Design</div>
+                    <div><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i> Cyber Security</div>
+                    <div><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i> Mobile App Development</div>
+                    <div><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i> Computer Engineering</div>
+                    <div><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i> UI/UX Design</div>
+                    <div><i class="fas fa-check" style="color: var(--success-color); margin-right: 0.5rem;"></i> Networking</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="programs" id="programs">
-        <h2 class="section-title">Our Training Programs</h2>
+    <!-- Programs Section -->
+    <section class="section programs" id="programs">
+        <h2 class="section-title">Professional Training Programs</h2>
+        <p class="section-subtitle">Choose from our wide range of IT programs designed for all skill levels</p>
+        
         <div class="programs-container">
-            
+            <!-- Foundation Programs -->
             <div class="program-category">
-                <h3 class="category-title">Standard Programs</h3>
+                <h3 class="category-title">Foundation Programs</h3>
                 <div class="program-grid">
-                    <div class="program-card">
-                        <h3>2 Months Program</h3>
-                        <div class="program-price">₦40,000</div>
-                        <div class="program-duration">Duration: 2 Months</div>
-                        <ul class="program-list">
-                            <li>Computer Appreciation</li>
-                            <li>MS Windows</li>
-                            <li>MS Word</li>
-                            <li>MS Excel</li>
-                            <li>MS PowerPoint</li>
-                            <li>Programming (Qbasic)</li>
-                            <li>Internet & Email</li>
-                            <li>Basic Networking</li>
-                        </ul>
+                    <div class="program-card fade-in">
+                        <div class="program-header">
+                            <h3>2-Month Executive Program</h3>
+                            <p>Morning & Afternoon Sessions</p>
+                        </div>
+                        <div class="program-body">
+                            <div class="program-price">₦80,000</div>
+                            <div class="program-duration">8 Weeks</div>
+                            <ul class="program-list">
+                                <li>Computer Appreciation & Typing</li>
+                                <li>MS Windows, Word, Excel, PowerPoint</li>
+                                <li>CorelDraw & Publisher</li>
+                                <li>Internet, Email & Browsing</li>
+                                <li>Basic Networking</li>
+                                <li>Programming (HTML Introduction)</li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div class="program-card">
-                        <h3>3 Months Program</h3>
-                        <div class="program-price">₦60,000</div>
-                        <div class="program-duration">Duration: 3 Months</div>
-                        <ul class="program-list">
-                            <li>All 2-Month content</li>
-                            <li>MS Access</li>
-                            <li>MS Publisher</li>
-                            <li>CorelDraw</li>
-                            <li>Advanced Networking</li>
-                        </ul>
+                    <div class="program-card fade-in">
+                        <div class="program-header">
+                            <h3>3-Month Comprehensive</h3>
+                            <p>Complete Computer Training</p>
+                        </div>
+                        <div class="program-body">
+                            <div class="program-price">₦60,000</div>
+                            <div class="program-duration">12 Weeks</div>
+                            <ul class="program-list">
+                                <li>All 2-Month Foundation Content</li>
+                                <li>MS Access Database</li>
+                                <li>Advanced CorelDraw</li>
+                                <li>Extended Practical Sessions</li>
+                                <li>Project Development</li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div class="program-card">
-                        <h3>4 Months Program</h3>
-                        <div class="program-price">₦80,000</div>
-                        <div class="program-duration">Duration: 4 Months</div>
-                        <ul class="program-list">
-                            <li>All 3-Month content</li>
-                            <li>Adobe Photoshop</li>
-                            <li>Adobe Illustrator</li>
-                            <li>Color Separation</li>
-                            <li>Photo Paint</li>
-                            <li>Canva & PicsArt</li>
-                        </ul>
+                    <div class="program-card fade-in">
+                        <div class="program-header">
+                            <h3>Graphics Package</h3>
+                            <p>Professional Design Training</p>
+                        </div>
+                        <div class="program-body">
+                            <div class="program-price">₦80,000</div>
+                            <div class="program-duration">3 Months</div>
+                            <ul class="program-list">
+                                <li>CorelDraw Mastery</li>
+                                <li>Adobe Photoshop</li>
+                                <li>Adobe Illustrator</li>
+                                <li>Photo Paint & Color Separation</li>
+                                <li>Canva & PicsArt</li>
+                                <li>Digital Marketing Basics</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Specialized Programs -->
             <div class="program-category">
-                <h3 class="category-title">Special Programs</h3>
+                <h3 class="category-title">Specialized Programs</h3>
                 <div class="program-grid">
-                    <div class="program-card">
-                        <h3>Web Development</h3>
-                        <div class="program-price">₦200,000</div>
-                        <div class="program-duration">Duration: 3 Months</div>
-                        <ul class="program-list">
-                            <li>HTML & CSS</li>
-                            <li>JavaScript</li>
-                            <li>PHP/Node.js</li>
-                            <li>jQuery/React</li>
-                            <li>MongoDB/MySQL</li>
-                        </ul>
+                    <div class="program-card fade-in">
+                        <div class="program-header">
+                            <h3>Web Development</h3>
+                            <p>Full Stack Development</p>
+                        </div>
+                        <div class="program-body">
+                            <div class="program-price">₦140,000</div>
+                            <div class="program-duration">4 Months</div>
+                            <ul class="program-list">
+                                <li>HTML5, CSS3, JavaScript</li>
+                                <li>Node.js & Express.js</li>
+                                <li>jQuery/React.js</li>
+                                <li>MongoDB/MySQL Databases</li>
+                                <li>API Development</li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div class="program-card">
-                        <h3>Python Programming</h3>
-                        <div class="program-price">₦250,000</div>
-                        <div class="program-duration">Duration: 3 Months</div>
-                        <ul class="program-list">
-                            <li>Python Fundamentals</li>
-                            <li>Data Structures</li>
-                            <li>Web Development with Python</li>
-                            <li>Database Integration</li>
-                        </ul>
+                    <div class="program-card fade-in">
+                        <div class="program-header">
+                            <h3>Cyber Security</h3>
+                            <p>Network Protection & Security</p>
+                        </div>
+                        <div class="program-body">
+                            <div class="program-price">₦250,000</div>
+                            <div class="program-duration">3 Months</div>
+                            <ul class="program-list">
+                                <li>Network Security Fundamentals</li>
+                                <li>Ethical Hacking</li>
+                                <li>Security Protocols</li>
+                                <li>Risk Assessment & Management</li>
+                                <li>Practical Security Implementation</li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div class="program-card">
-                        <h3>Artificial Intelligence</h3>
-                        <div class="program-price">₦300,000</div>
-                        <div class="program-duration">Duration: 3 Months</div>
-                        <ul class="program-list">
-                            <li>AI Fundamentals</li>
-                            <li>Machine Learning</li>
-                            <li>Neural Networks</li>
-                            <li>Practical AI Applications</li>
-                        </ul>
-                    </div>
-
-                    <div class="program-card">
-                        <h3>Data Science</h3>
-                        <div class="program-price">₦200,000</div>
-                        <div class="program-duration">Duration: 2 Months</div>
-                        <ul class="program-list">
-                            <li>Data Analysis</li>
-                            <li>Excel & Power BI</li>
-                            <li>SPSS</li>
-                            <li>Statistical Methods</li>
-                        </ul>
-                    </div>
-
-                    <div class="program-card">
-                        <h3>Mobile App Development</h3>
-                        <div class="program-price">₦200,000</div>
-                        <div class="program-duration">Duration: 3 Months</div>
-                        <ul class="program-list">
-                            <li>iOS & Android Development</li>
-                            <li>UI/UX Design</li>
-                            <li>App Deployment</li>
-                            <li>Testing & Debugging</li>
-                        </ul>
-                    </div>
-
-                    <div class="program-card">
-                        <h3>Cyber Security</h3>
-                        <div class="program-price">₦250,000</div>
-                        <div class="program-duration">Duration: 3 Months</div>
-                        <ul class="program-list">
-                            <li>Network Security</li>
-                            <li>Ethical Hacking</li>
-                            <li>Security Protocols</li>
-                            <li>Risk Management</li>
-                        </ul>
+                    <div class="program-card fade-in">
+                        <div class="program-header">
+                            <h3>Mobile App Development</h3>
+                            <p>iOS & Android Development</p>
+                        </div>
+                        <div class="program-body">
+                            <div class="program-price">₦150,000</div>
+                            <div class="program-duration">3 Months</div>
+                            <ul class="program-list">
+                                <li>React Native & Expo</li>
+                                <li>API Integration</li>
+                                <li>UI/UX Design for Mobile</li>
+                                <li>App Deployment</li>
+                                <li>Testing & Debugging</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Additional Programs -->
             <div class="program-category">
-                <h3 class="category-title">Design & Graphics</h3>
+                <h3 class="category-title">Additional Professional Programs</h3>
                 <div class="program-grid">
-                    <div class="program-card">
-                        <h3>Graphics Package</h3>
-                        <div class="program-price">₦80,000</div>
-                        <div class="program-duration">Duration: 3 Months</div>
-                        <ul class="program-list">
-                            <li>Adobe Photoshop</li>
-                            <li>Adobe Illustrator</li>
-                            <li>CorelDraw</li>
-                            <li>Photo Paint</li>
-                            <li>Digital Marketing</li>
-                        </ul>
+                    <div class="program-card fade-in">
+                        <div class="program-header">
+                            <h3>Data Science & Analysis</h3>
+                            <p>Data-Driven Decision Making</p>
+                        </div>
+                        <div class="program-body">
+                            <div class="program-price">₦200,000</div>
+                            <div class="program-duration">2 Months</div>
+                            <ul class="program-list">
+                                <li>Data Analysis with Excel</li>
+                                <li>Power BI Visualization</li>
+                                <li>SPSS Statistical Analysis</li>
+                                <li>Python for Data Science</li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div class="program-card">
-                        <h3>Video Editing</h3>
-                        <div class="program-price">₦100,000</div>
-                        <div class="program-duration">Professional Training</div>
-                        <ul class="program-list">
-                            <li>Video Editing Software</li>
-                            <li>Color Grading</li>
-                            <li>Audio Editing</li>
-                            <li>Post Production</li>
-                        </ul>
+                    <div class="program-card fade-in">
+                        <div class="program-header">
+                            <h3>Artificial Intelligence</h3>
+                            <p>AI & Machine Learning</p>
+                        </div>
+                        <div class="program-body">
+                            <div class="program-price">₦300,000</div>
+                            <div class="program-duration">3 Months</div>
+                            <ul class="program-list">
+                                <li>AI Fundamentals</li>
+                                <li>Machine Learning Algorithms</li>
+                                <li>Neural Networks</li>
+                                <li>Practical AI Applications</li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <div class="program-card">
-                        <h3>UI/UX Design</h3>
-                        <div class="program-price">₦120,000</div>
-                        <div class="program-duration">Duration: 2 Months</div>
-                        <ul class="program-list">
-                            <li>User Interface Design</li>
-                            <li>User Experience</li>
-                            <li>Prototyping</li>
-                            <li>Design Tools</li>
-                        </ul>
+                    <div class="program-card fade-in">
+                        <div class="program-header">
+                            <h3>Computer Maintenance & Repair</h3>
+                            <p>Hardware & Software Repair</p>
+                        </div>
+                        <div class="program-body">
+                            <div class="program-price">₦180,000</div>
+                            <div class="program-duration">6 Months</div>
+                            <ul class="program-list">
+                                <li>Computer Assembling</li>
+                                <li>Hardware Installation</li>
+                                <li>Software Installation (OS & Apps)</li>
+                                <li>Laptop & Desktop Repair</li>
+                                <li>Printer Maintenance</li>
+                                <li>Networking & Configuration</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="schedule" id="schedule">
-        <h2 class="section-title-2">Class Schedule</h2>
+    <!-- Schedule Section -->
+    <section class="section" id="schedule">
+        <h2 class="section-title">Flexible Class Schedule</h2>
+        <p class="section-subtitle">We offer multiple sessions to accommodate your schedule</p>
+        
         <div class="schedule-grid">
-            <div class="schedule-card">
+            <div class="schedule-card fade-in">
+                <div class="schedule-icon">
+                    <i class="fas fa-sun"></i>
+                </div>
                 <h3>Morning Session</h3>
-                <p style="font-size: 1.5rem; margin: 1rem 0;">8:30 AM - 11:30 AM</p>
-                <p>Perfect for early birds and working professionals</p>
+                <div class="schedule-time">8:30 AM - 11:30 AM</div>
+                <p>Perfect for early risers and those who prefer starting their day with learning.</p>
             </div>
-            <div class="schedule-card">
+            
+            <div class="schedule-card fade-in">
+                <div class="schedule-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
                 <h3>Afternoon Session</h3>
-                <p style="font-size: 1.5rem; margin: 1rem 0;">12:00 PM - 3:00 PM</p>
-                <p>Ideal for students and flexible schedules</p>
+                <div class="schedule-time">12:00 PM - 3:00 PM</div>
+                <p>Ideal for students and individuals with flexible daytime schedules.</p>
             </div>
-            <div class="schedule-card">
+            
+            <div class="schedule-card fade-in">
+                <div class="schedule-icon">
+                    <i class="fas fa-moon"></i>
+                </div>
                 <h3>Evening Session</h3>
-                <p style="font-size: 1.5rem; margin: 1rem 0;">3:30 PM - 6:00 PM</p>
-                <p>Great for after-work learning</p>
+                <div class="schedule-time">3:30 PM - 6:00 PM</div>
+                <p>Designed for working professionals and students with daytime commitments.</p>
             </div>
         </div>
-        <div style="text-align: center; margin-top: 2rem;">
-            <p style="font-size: 1.2rem; margin-bottom: 1rem;">Weekend programs also available!</p>
-            <p>Programs start at the beginning of each month</p>
+        
+        <div style="text-align: center; margin-top: 3rem;">
+            <p style="font-size: 1.2rem; font-weight: 600; color: var(--primary-color); margin-bottom: 0.5rem;">
+                <i class="fas fa-calendar-check"></i> Weekend programs available upon request
+            </p>
+            <p style="color: var(--gray-color);">New programs start at the beginning of each month</p>
         </div>
     </section>
 
-    <section class="contact" id="contact">
-        <h2 class="section-title">Registration Information</h2>
-        <div class="contact-info">
-            <div class="requirements">
-                <h3>Requirements Before Starting</h3>
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <h2 class="section-title">Registration & Contact</h2>
+        <p class="section-subtitle">Begin your IT journey with us today</p>
+        
+        <div class="contact-container">
+            <div>
+                <div class="requirements fade-in">
+                    <h3><i class="fas fa-clipboard-list"></i> Registration Requirements</h3>
+                    <ul>
+                        <li>Registration Fee: ₦3,000 (non-refundable)</li>
+                        <li>One recent passport photograph</li>
+                        <li>Plastic ID Card: ₦2,000 (optional)</li>
+                        <li>Full program payment required before commencement</li>
+                    </ul>
+                </div>
+
+                <div class="contact-info fade-in">
+                    <h3><i class="fas fa-certificate"></i> Certification</h3>
+                    <p>Enhance your credentials with our government-recognized certification:</p>
+                    <ul style="margin-top: 1rem;">
+                        <li>Internal Computer Exam: ₦12,000</li>
+                        <li>NABTEB External Exam: ₦25,000</li>
+                    </ul>
+                    <p style="margin-top: 1rem; font-weight: 600; color: var(--primary-color);">
+                        <i class="fas fa-calendar-alt"></i> Exam Batches: April/May, August/September, November/December
+                    </p>
+                </div>
+
+                <div class="contact-info fade-in">
+                    <h3><i class="fas fa-map-marker-alt"></i> Our Location</h3>
+                    <p style="margin-bottom: 1rem;">
+                        <i class="fas fa-building"></i> No. 30 Ohafia Street, Umuahia<br>
+                        Abia State, Nigeria
+                    </p>
+                    <p style="margin-bottom: 1rem;">
+                        <i class="fas fa-clock"></i> Monday - Saturday: 8:30 AM - 6:00 PM
+                    </p>
+                    <p>
+                        <i class="fas fa-hashtag"></i> Registration Number: RC649331
+                    </p>
+                </div>
+            </div>
+
+            <div>
+                <div class="whatsapp-contact fade-in">
+                    <h3><i class="fab fa-whatsapp"></i> Contact Us on WhatsApp</h3>
+                    <p>Have questions about our programs? Need guidance on which course to choose? Chat with us directly on WhatsApp for instant assistance.</p>
+                    
+                    <a href="https://wa.me/2348064305760?text=Hello%20Prevailing%20Computers!%20I%20would%20like%20to%20inquire%20about%20your%20training%20programs." 
+                       class="whatsapp-button" 
+                       target="_blank">
+                        <i class="fab fa-whatsapp" style="font-size: 1.5rem;"></i>
+                        <span>Chat on WhatsApp</span>
+                    </a>
+                    
+                    <p style="margin-top: 1.5rem; font-size: 1.2rem; font-weight: 600;">
+                        <i class="fas fa-phone"></i> 0806 430 5760
+                    </p>
+                </div>
+
+                <div class="contact-info fade-in" style="margin-top: 2rem;">
+                    <h3><i class="fas fa-info-circle"></i> Additional Information</h3>
+                    <p>We also offer:</p>
+                    <ul style="margin-top: 1rem;">
+                        <li>WAEC & JAMB CBT Exam Preparation</li>
+                        <li>Computer Sales and Services</li>
+                        <li>Website Design & Development Services</li>
+                        <li>IT Consulting</li>
+                        <li>Corporate Training Programs</li>
+                    </ul>
+                </div>
+
+                <div class="contact-info fade-in" style="margin-top: 2rem; text-align: center;">
+                    <h3><i class="fas fa-graduation-cap"></i> Ready to Start?</h3>
+                    <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">Take the first step toward a successful career in information technology.</p>
+                    <p style="font-style: italic; color: var(--accent-color); font-weight: 600;">
+                        "Prevailing... Solution to your Computer Problems!!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div>
+                <div class="footer-logo">
+                    <i class="fas fa-laptop-code"></i>
+                    <span>PREVAILING COMPUTERS</span>
+                </div>
+                <p style="color: rgba(255, 255, 255, 0.7); margin-bottom: 1.5rem;">
+                    Professional IT training institute providing industry-relevant education and certification since 2004.
+                </p>
+                <p style="color: rgba(255, 255, 255, 0.7);">
+                    <i class="fas fa-quote-left"></i> Your solution to computer problems
+                </p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Quick Links</h4>
                 <ul>
-                    <li>Registration Fee: ₦2,500</li>
-                    <li>1 Passport Photograph</li>
-                    <li>Plastic ID Card: ₦2,000</li>
-                    <li>Full payment before starting any program</li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#schedule">Schedule</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </div>
-
-            <div class="info-card">
-                <h3>🎓 NABTEB Certification</h3>
-                <p>Register for our internal computer exam and certificate with NABTEB for ₦25,000</p>
-                <p><strong>Exam Batches:</strong> April/May, Aug/Sept, Nov/Dec</p>
-            </div>
-
-            <div class="info-card">
-                <h3>💡 Additional Services</h3>
-                <p>Computer Operations, Maintenance & Repairs, Internet and Networking</p>
-                <p>Sales and Services, Desktop Publishing, Website Designing</p>
-            </div>
-
-            <div class="info-card">
-                <h3>📞 Get Started Today!</h3>
-                <p style="font-size: 1.3rem; color: #667eea; font-weight: bold;">RC649331</p>
-                <p style="margin-top: 1rem; font-style: italic;">"Prevailing... Solution to your Computer Problems!!"</p>
+            
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt" style="margin-right: 0.5rem;"></i> 30 Ohafia St, Umuahia</li>
+                    <li><i class="fas fa-phone" style="margin-right: 0.5rem;"></i> 0806 430 5760</li>
+                    <li><i class="fas fa-hashtag" style="margin-right: 0.5rem;"></i> RC649331</li>
+                    <li><i class="fas fa-certificate" style="margin-right: 0.5rem;"></i> NABTEB Certified</li>
+                </ul>
             </div>
         </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Prevailing Computers Training Institute. All rights reserved.</p>
+        
+        <div class="copyright">
+            &copy; 2025 Prevailing Computers Training Institute. All rights reserved.<br>
+            Managed by Engr. Ifeanyi Iro-Ogaranya
+        </div>
     </footer>
 
     <script>
@@ -840,14 +1175,16 @@
 
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            menuToggle.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+            const icon = menuToggle.querySelector('i');
+            icon.className = navLinks.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
         });
 
         // Close menu when clicking a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
-                menuToggle.textContent = '☰';
+                const icon = menuToggle.querySelector('i');
+                icon.className = 'fas fa-bars';
             });
         });
 
@@ -862,7 +1199,7 @@
             });
         });
 
-        // Add fade-in animation on scroll
+        // Fade-in animation on scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -871,18 +1208,34 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('fade-in');
                 }
             });
         }, observerOptions);
 
-        document.querySelectorAll('.feature-card, .program-card, .info-card').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s ease';
+        // Observe elements for animation
+        document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
+
+        // Add scroll effect to header
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.08)';
+            }
+        });
+
+        // WhatsApp redirect with pre-filled message
+        const whatsappButton = document.querySelector('.whatsapp-button');
+        if (whatsappButton) {
+            whatsappButton.addEventListener('click', function(e) {
+                const message = "Hello Prevailing Computers! I would like to inquire about your training programs.";
+                this.href = `https://wa.me/2348064305760?text=${encodeURIComponent(message)}`;
+            });
+        }
     </script>
 </body>
 </html>
